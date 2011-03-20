@@ -8,22 +8,6 @@ function bcd_localities_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'content_extra_weights_loc';
-  $strongarm->value = array(
-    'title' => '-5',
-    'body_field' => '-2',
-    'revision_information' => '1',
-    'author' => '3',
-    'options' => '4',
-    'menu' => '0',
-    'path' => '2',
-    'locations' => '-3',
-  );
-
-  $export['content_extra_weights_loc'] = $strongarm;
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'location_defaultnum_loc';
   $strongarm->value = '1';
 

@@ -1,0 +1,12 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *
+ */
+
+function bcd_localities_install() {
+  variable_set('gmap_node_markers_loc', 'small bred');
+  variable_set('pathauto_node_loc_pattern', 'community/[location-province_name_0]/[title-raw]');
+}

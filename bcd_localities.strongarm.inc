@@ -11,11 +11,13 @@ function bcd_localities_strongarm() {
   $strongarm->name = 'content_extra_weights_loc';
   $strongarm->value = array(
     'title' => '-5',
-    'body_field' => '-3',
-    'revision_information' => '2',
-    'menu' => '1',
-    'path' => '3',
-    'locations' => '-4',
+    'body_field' => '-2',
+    'revision_information' => '1',
+    'author' => '3',
+    'options' => '4',
+    'menu' => '0',
+    'path' => '2',
+    'locations' => '-3',
   );
 
   $export['content_extra_weights_loc'] = $strongarm;
@@ -44,7 +46,7 @@ function bcd_localities_strongarm() {
       'add' => '1',
     ),
     'form' => array(
-      'weight' => 0,
+      'weight' => '-3',
       'collapsible' => 1,
       'collapsed' => 1,
       'fields' => array(
@@ -90,7 +92,7 @@ function bcd_localities_strongarm() {
       ),
     ),
     'display' => array(
-      'weight' => 0,
+      'weight' => '-3',
       'hide' => array(
         'name' => 0,
         'street' => 0,

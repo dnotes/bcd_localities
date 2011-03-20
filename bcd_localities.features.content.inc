@@ -11,12 +11,8 @@ function bcd_localities_content_default_fields() {
     'field_name' => 'field_cluster',
     'type_name' => 'loc',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '-2',
       'parent' => 'group_community',
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -27,6 +23,10 @@ function bcd_localities_content_default_fields() {
       'full' => array(
         'format' => 'plain',
         'exclude' => 1,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
       ),
       '2' => array(
         'format' => 'default',
@@ -62,7 +62,7 @@ function bcd_localities_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Cluster',
-      'weight' => '5',
+      'weight' => '-2',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -76,6 +76,17 @@ function bcd_localities_content_default_fields() {
     'display_settings' => array(
       'weight' => '-4',
       'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
       'token' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -91,17 +102,6 @@ function bcd_localities_content_default_fields() {
       '4' => array(
         'format' => 'hidden',
         'exclude' => 1,
-      ),
-      'label' => array(
-        'format' => 'hidden',
-      ),
-      'teaser' => array(
-        'format' => 'hidden',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'hidden',
-        'exclude' => 0,
       ),
     ),
     'widget_active' => '1',
@@ -125,7 +125,7 @@ function bcd_localities_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Location Code',
-      'weight' => '1',
+      'weight' => '-4',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -137,12 +137,8 @@ function bcd_localities_content_default_fields() {
     'field_name' => 'field_loc_type',
     'type_name' => 'loc',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '-3',
       'parent' => 'group_community',
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -152,6 +148,10 @@ function bcd_localities_content_default_fields() {
       ),
       'full' => array(
         'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -186,7 +186,7 @@ RGP|Registered Group',
       ),
       'default_value_php' => NULL,
       'label' => 'Administration',
-      'weight' => '2',
+      'weight' => '-3',
       'description' => '',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -198,8 +198,19 @@ RGP|Registered Group',
     'field_name' => 'field_website',
     'type_name' => 'loc',
     'display_settings' => array(
-      'weight' => '-2',
-      'parent' => '',
+      'weight' => '-1',
+      'parent' => 'group_community',
+      'label' => array(
+        'format' => 'inline',
+      ),
+      'teaser' => array(
+        'format' => 'url',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'url',
+        'exclude' => 0,
+      ),
       'token' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -215,17 +226,6 @@ RGP|Registered Group',
       '4' => array(
         'format' => 'default',
         'exclude' => 1,
-      ),
-      'label' => array(
-        'format' => 'inline',
-      ),
-      'teaser' => array(
-        'format' => 'url',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'url',
-        'exclude' => 0,
       ),
     ),
     'widget_active' => '1',
@@ -256,7 +256,7 @@ RGP|Registered Group',
       ),
       'default_value_php' => NULL,
       'label' => 'Web Page',
-      'weight' => '8',
+      'weight' => '-1',
       'description' => '',
       'type' => 'link',
       'module' => 'link',

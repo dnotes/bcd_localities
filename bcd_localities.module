@@ -1,3 +1,48 @@
 <?php
 
 include_once('bcd_localities.features.inc');
+
+function bcd_localities_gmap($op, &$map) {
+  if ($op == 'pre_theme_map') {
+    if (stripos($map['id'], 'iploc_') !== FALSE && module_exists('geoip')) {
+      if ($loc = geoip_city()) { // intentional assignment of $location
+        $map['latitude'] = $loc->latitude;
+        $map['longitude'] = $loc->longitude;
+      }
+    }
+    elseif ($map['id'] == 'near_locality' && module_exists('location') && arg(0) == 'node') {
+      if ($node = node_load(arg(1))) { // intentional assignment of $node
+        $map['latitude'] = $node->location['latitude'];
+        $map['longitude'] = $node->location['longitude'];
+      }
+    }
+  }
+}
+
+function bcd_localities_form_search_block_form_alter($form) {
+  $form['search_block_form']['#title'] = t('Search for a city by name, or type in a postal code to find Baha\'i communities nearby');
+  $form['#submit'] = array('ccd_loc_search_form_submit');
+}
+
+function bcd_localities_search_form_submit($form, &$form_state) {
+  if (is_numeric($form_state['values']['search_block_form'])) {
+    $form_state['redirect'] = url('bahai-communities/search', array('query' => array(
+      'distance[postal_code]' => $form_state['values']['search_block_form'],
+      'distance[search_distance]' => '200',
+      'distance[search_units]' => 'mile'
+    ),
+    'absolute' => TRUE));
+  }
+  else {
+    search_box_form_submit($form, $form_state);
+  }
+}
+
+function bcd_localities_nodeapi(&$node, $op, $a3, $a4) {
+  if ($op == 'view') {
+    if ($node->type == 'loc' && arg(0) == 'node' && arg(1) == $node->nid) {
+      $state = $node->locations[0][province_name];
+      drupal_set_title(t("Baha'i Community of @city", array('@city' => $node->title . ($state ? ", $state" : ''))));
+    }
+  }
+}

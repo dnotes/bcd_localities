@@ -21,7 +21,7 @@ function bcd_localities_gmap($op, &$map) {
 
 function bcd_localities_form_search_block_form_alter($form) {
   $form['search_block_form']['#title'] = t('Search for a city by name, or type in a postal code to find Baha\'i communities nearby');
-  $form['#submit'] = array('ccd_loc_search_form_submit');
+  $form['#submit'] = array('bcd_localities_search_form_submit');
 }
 
 function bcd_localities_search_form_submit($form, &$form_state) {
